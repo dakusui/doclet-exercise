@@ -54,9 +54,8 @@
         <thincrest-pcond.version>1.1.0</thincrest-pcond.version>
         <!-- END: test dependencies -->
         <!-- BEGIN: build dependencies -->
-        <asciidoclet.version>2.0.0-SNAPSHOT</asciidoclet.version>
-        <asciidoctor.maven.plugin.version>2.0.0-RC.1
-        </asciidoctor.maven.plugin.version>
+        <asciidoclet.version>2.0.1-SNAPSHOT</asciidoclet.version>
+        <asciidoctor.maven.plugin.version>2.0.0-RC.1</asciidoctor.maven.plugin.version>
         <asciidoctorj.version>2.5.11</asciidoctorj.version>
         <asciidoctorj.diagram.version>2.0.1</asciidoctorj.diagram.version>
         <jruby.version>9.2.12.0</jruby.version>
@@ -152,7 +151,7 @@
                         <overview>src/main/javadoc/overview.adoc</overview>
                         <doclet>org.asciidoctor.asciidoclet.Asciidoclet</doclet>
                         <docletArtifact>
-                            <groupId>com.github.dakusui</groupId>
+                            <groupId>org.asciidoctor</groupId>
                             <artifactId>asciidoclet</artifactId>
                             <version>${asciidoclet.version}</version>
                             <classifier>shaded</classifier>
@@ -490,7 +489,7 @@
                     <!-- disable generateReports if you don't want to include the built-in reports -->
                     <generateReports>true</generateReports>
                     <generateSitemap>true</generateSitemap>
-                    <relativizeDecorationLinks>false</relativizeDecorationLinks>
+                    <relativizeSiteLinks>false</relativizeSiteLinks>
                     <locales>en</locales>
                     <inputEncoding>UTF-8</inputEncoding>
                     <outputEncoding>UTF-8</outputEncoding>
