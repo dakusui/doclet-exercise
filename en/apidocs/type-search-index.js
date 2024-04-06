@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.github.dakusui.java8.template","l":"Java8App"}];updateSearchResults();
