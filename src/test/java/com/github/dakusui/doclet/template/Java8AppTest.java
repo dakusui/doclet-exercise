@@ -1,6 +1,6 @@
-package com.github.dakusui.java8.template;
+package com.github.dakusui.doclet.template;
 
-import com.github.dakusui.java8.template.testutils.TestBase;
+import com.github.dakusui.doclet.template.testutils.TestBase;
 import com.github.dakusui.thincrest.TestAssertions;
 import com.github.dakusui.thincrest_pcond.fluent.Statement;
 import org.junit.jupiter.api.Disabled;

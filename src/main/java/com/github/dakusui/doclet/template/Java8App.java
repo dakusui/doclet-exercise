@@ -1,4 +1,4 @@
-package com.github.dakusui.java8.template;
+package com.github.dakusui.doclet.template;
 
 /**
  * An entry-point class of Java8 Template.

@@ -54,7 +54,7 @@
         <thincrest-pcond.version>1.1.0</thincrest-pcond.version>
         <!-- END: test dependencies -->
         <!-- BEGIN: build dependencies -->
-        <asciidoclet.version>2.0.1-SNAPSHOT</asciidoclet.version>
+        <asciidoclet.version>2.0.0-SNAPSHOT</asciidoclet.version>
         <asciidoctor.maven.plugin.version>2.0.0-RC.1</asciidoctor.maven.plugin.version>
         <asciidoctorj.version>2.5.11</asciidoctorj.version>
         <asciidoctorj.diagram.version>2.0.1</asciidoctorj.diagram.version>
@@ -146,43 +146,26 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${maven-javadoc-plugin.version}</version>
+                    <version>3.6.3</version>
                     <configuration>
-                        <overview>src/main/javadoc/overview.adoc</overview>
+                        <source>11</source>
                         <doclet>org.asciidoctor.asciidoclet.Asciidoclet</doclet>
                         <docletArtifact>
                             <groupId>org.asciidoctor</groupId>
                             <artifactId>asciidoclet</artifactId>
                             <version>${asciidoclet.version}</version>
-                            <classifier>shaded</classifier>
                         </docletArtifact>
-                        <additionalJOptions>
-                            <additionalJOption>--add-exports=jdk.javadoc/jdk.javadoc.internal.api=asciidoclet</additionalJOption>
-                            <additionalJOption>--add-exports=jdk.javadoc/jdk.javadoc.internal.tool=asciidoclet</additionalJOption>
-                            <additionalJOption>--add-exports=jdk.compiler/com.sun.tools.javac.api=asciidoclet</additionalJOption>
-                            <additionalJOption>--add-exports=jdk.compiler/com.sun.tools.javac.parser=asciidoclet</additionalJOption>
-                            <additionalJOption>--add-exports=jdk.compiler/com.sun.tools.javac.tree=asciidoclet</additionalJOption>
-                            <additionalJOption>--add-exports=jdk.compiler/com.sun.tools.javac.model=asciidoclet</additionalJOption>
-                            <additionalJOption>--add-opens=jdk.compiler/com.sun.tools.javac.api=asciidoclet</additionalJOption>
-                            <additionalJOption>--add-opens=jdk.compiler/com.sun.tools.javac.parser=asciidoclet</additionalJOption>
-                            <additionalJOption>-J--add-opens=jdk.javadoc/jdk.javadoc.internal.api=ALL-UNNAMED</additionalJOption>
-                            <additionalJOption>-J--add-opens=jdk.javadoc/jdk.javadoc.internal.tool=ALL-UNNAMED</additionalJOption>
-                            <additionalJOption>-J--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</additionalJOption>
-                            <additionalJOption>-J--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</additionalJOption>
-                            <additionalJOption>-J--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</additionalJOption>
-                            <additionalJOption>-Xdoclint:all,-html,-accessibility</additionalJOption>
-                        </additionalJOptions>
-                        <additionalOptions>
+                        <overview>src/main/java/overview.adoc</overview>
+                        <additionalparam>
                             --base-dir ${project.basedir}
                             --attribute "name=${project.name}"
                             --attribute "version=${project.version}"
-                            --attribute "imagesoutdir=.asciidoctor/diagram"
-                            --attribute "imagesdir=.asciidoctor/diagram"
-                            --attribute "dot=/usr/bin/dot"
-                            --require asciidoctor-diagram
-                            --gem-path ${env.GEM_PATH}
-                            --attribute data-uri
-                        </additionalOptions>
+                            --attribute "title-link=https://example.com[${project.name} ${project.version}]"
+                        </additionalparam>
+                        <additionalJOptions>
+                            <additionalJOption>-J--add-exports=jdk.javadoc/jdk.javadoc.internal.tool=ALL-UNNAMED</additionalJOption>
+                            <additionalJOption>-Xdoclint:all,-html,-accessibility</additionalJOption>
+                        </additionalJOptions>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -236,8 +219,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <source>11</source>
+                    <target>11</target>
                     <compilerArgs>
                         <!--
                         <arg>-Xlint:all,-options,-path</arg>
